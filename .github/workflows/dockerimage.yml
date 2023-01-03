@@ -20,9 +20,17 @@ jobs:
           registry: ghcr.io
           username: koen20
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Login to Scaleway
+        uses: docker/login-action@v1
+        with:
+          registry: rg.nl-ams.scw.cloud/koen-6396
+          username: nologin
+          password: ${{ secrets.SCALEWAY_TOKEN }}
       - name: Build and push amd64
         uses: docker/build-push-action@v2
         with:
           platforms: linux/amd64
           push: true
-          tags: ghcr.io/koen20/newsletter-s3:latest
+          tags: |
+            ghcr.io/koen20/newsletter-s3:latest
+            rg.nl-ams.scw.cloud/koen-6396/newsletter-s3:latest
