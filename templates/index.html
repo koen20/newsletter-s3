@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Newsletters</title>
+</head>
+<body>
+<div class="container main-content">
+  <form action="" method="post" enctype='multipart/form-data'>
+    <div class="mb-3">
+      <label for="file" class="form-label">Upload een afbeelding</label>
+      <input class="form-control" type="file" name="file" id="file" multiple>
+    </div>
+    <button type="submit" class="btn btn-primary">Verstuur</button>
+    <br><br>
+    {% if error %}
+    <p style="color: red">{{ error }}</p>
+    {% endif %}
+  </form>
+</div>
+</body>
+</html>
